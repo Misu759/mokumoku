@@ -29,6 +29,6 @@ class Event < ApplicationRecord
   end
 
   def authorized_user?(user)
-    !!user && (!only_woman || user.woman?) && !user.owner?(self)
+    user.present? && (!only_woman || user.woman?) && !user.owner?(self)
   end
 end
